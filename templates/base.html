@@ -6,16 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/a40a80e33c.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='dark_mode.css') }}">
-    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/dark_mode.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}" type="image/x-icon">
     <title>Milk Road</title>
 </head>
 
 <body>
     <div class="parent">
         <div class="header">
-            <a href="{{ url_for('index') }}"><img src="/static/silk.svg"></a>
+            <a href="{{ url_for('index') }}"><img src="/static/images/silk.svg"></a>
             <a href="{{ url_for('index') }}"><div id="main_text_box">
                 <h1 id="main_text">Milk Road</h1>
                 <em>
