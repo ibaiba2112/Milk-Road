@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block main_content %}
+
+<h1>TEST</h1>
+
+<h1>Your cart</h1>
+{% if cart %}
+    <a href="{{ url_for('order') }}">Click to Purchase</a>
+    <table>
+        {% for serialNum in cart %}
+        <tr>
+            <td>{{ names[serialNum] }}</td>
+             <td><a href="{{ url_for('remove_from_cart', serialNum=serialNum) }}">Remove Item</a></td> 
+            <td>{{ cart[serialNum] }}</td>
+            <td><a href="{{ url_for('increment_cart', serialNum=serialNum) }}">+</a></td>
+            <td><a href="{{ url_for('decrement_cart', serialNum=serialNum) }}">-</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+        <p>Your cart is empty!</p>
+    {% endif %}
+<p>
+    <a href="{{ url_for('products') }}">Continue Shopping</a>
+</p>
+<p>
+    <a href="{{ url_for('clear_cart') }}">Clear Cart</a>
+</p>
+
+
+{% endblock %}

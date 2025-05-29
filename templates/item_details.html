@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block main_content %}
+<div id="single_item_grid">
+    
+    <div id="single_item_container">
+        <a href="{{ url_for('product', serialNum=product['serialNum']) }}">
+            <img src="/{{ product['image'] }}">
+        </a>
+        <div id="item_name">
+            <a href="{{ url_for('product', serialNum=product['serialNum']) }}">
+                <b>{{ product["name"] }}</b>
+            </a>
+        </div>
+    <div id="item_price">฿{{ product["price"] }}</div>
+    <ul>
+        <li id="item_name">Caliber: {{ details["caliber"] }}</li>
+        <li id="item_name">Weight(kg): {{ details["weight"] }}</li>
+        <li id="item_name">Barrel Length: {{ details["barrel_length"] }}</li>
+        <li id="item_name">Description: {{ product["description"] }}</li>
+    </ul>
+ 
+    </div>
+   
+</div>
+
+
+
+
+
+
+<p>
+    <p>Placeholder cart option</p>
+</p>
+<p id="item_name">
+    <a href="{{ url_for('index') }}">Go Back</a>
+</p>
+{% endblock %}

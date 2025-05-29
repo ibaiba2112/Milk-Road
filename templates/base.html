@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/a40a80e33c.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='dark_mode.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+    <title>Milk Road</title>
+</head>
+
+<body>
+    <div class="parent">
+        <div class="header">
+            <a href="{{ url_for('index') }}"><img src="/static/silk.svg"></a>
+            <a href="{{ url_for('index') }}"><div id="main_text_box">
+                <h1 id="main_text">Milk Road</h1>
+                <em>
+                    <h2 id="sub_text">A random marketplace</h2>
+                </em>
+            </div></a>
+        </div>
+        <div class="nav">
+            <div id="global" class="toggle-off">
+                <!-- <a>
+                    <img src="/static/silk.svg" id="camel_icon"></a>
+
+                <a> -->
+                {% if g.user %}
+                <a>
+                    <p>Balance: <b style="color: #3C7D00;">฿ {{ g.funds }}</b></p>
+                </a>
+                <a href="{{ url_for('wallet') }}">
+                    <p>Wallet<b>(฿)</b></p>
+                </a>
+                <p>Hi {{ g.user }}!</p>
+                <a href="{{ url_for('logout') }}">
+                    <p>Logout</p>
+                </a>
+
+                {% else %}
+                <p>(Not logged in)</p>
+                <a href="{{ url_for('login') }}">
+                    <div>Login</div>
+                </a>
+                {% endif %}
+                <div id="toggle-icon" class="toggle-off">
+                    <i onclick="toggleIcon(); darkMode();" class="fas fa-toggle-on toggle-icon fa-2xl"
+                        id="toggle-on"></i>
+                    <i onclick="toggleIcon(); darkMode();" class="fas fa-toggle-off toggle-icon fa-2xl "
+                        id="toggle-off"></i>
+                </div>
+            </div>
+
+            <div id="nav_options">
+                <a>
+                    <div>Advanced Search</div>
+                </a>
+                <a>
+                    <div>Inbox(0)</div>
+                </a>
+                <a>
+                    <div>Orders(0)</div>
+                </a>
+                <a href="{{ url_for('cart') }}">
+                    <div>Your Cart(0)</div>
+                </a>
+                <a href="{{ url_for( 'account_details') }}">
+                    <div>Account</div>
+                </a>
+            </div>
+            <div id="search">
+                <p>Search_bar_goes_here</p>
+            </div>
+            <div id="contact_details">
+                <a>
+                    <div>About</div>
+                </a>
+                <a>
+                    <div>Contact</div>
+                </a>
+                <a>
+                    <div>Donate</div>
+                </a>
+            </div>
+        </div>
+        <div class="marquee">
+            <div id="marquee_content">
+                <h2>Welcome</h2>
+            </div>
+        </div>
+        <div class="categories">Search By Category
+            <ul>
+                <li>Weapons</li>
+                <ul>
+                <li>Firearms</li>
+                <li>Explosives</li>
+                <li>Ammunition</li>
+                <li>Tactical Gear</li>
+                <li>Military Equipment</li>
+                </ul>
+            </ul>
+            <ul>
+                <li>Drugs & Medicine</li>
+                <ul>
+                <li>Prescription Meds</li>
+                <li>Illicit Drugs</li>
+                <li>Research Chemicals</li>
+                <li>Herbal/Natural Substances</li>
+                </ul>
+            </ul>
+            <ul>
+                <li>Services</li>
+                <ul>
+                <li>Hacking/Cyber Services</li>
+                <li>Forged Documents</li>
+                <li>Contractors/Protection</li>
+                <li>Blackmail/Info Leaks</li>
+                </ul>
+            </ul>
+            <ul>
+                <li>Real Estate</li>
+                <ul>
+                <li>Safehouses</li>
+                <li>Underground Bunkers</li>
+                <li>Off-grid Cabins</li>
+                </ul>
+            </ul>
+            <ul>
+                <li>Lifestyle / Luxury</li>
+                <ul>
+                    <li>Alcohol</li>
+                    <li>Rare Cigars & Tobacco</li>
+                    <li>Jewelry / Rare Gems</li>
+                    <li>Artifacts / Antiquities</li>
+                    <li>Exotic Animals</li>
+                    <li>Designer Clothes</li>
+                </ul>
+            </ul>
+            <ul>
+                <li>Digital / Tech</li>
+                <ul>
+                    <li>Software Keys / Licenses</li>
+                    <li>Malware / Exploits</li>
+                    <li>Stolen Data</li>
+                    <li>Burner Phones / SIM Cards</li>
+                    <li>Encrypted Devices</li>
+                </ul>
+            </ul>
+            <ul>
+                <li>Random / Misc</li>
+                <ul>
+                    <li>Random</li>
+                    <li>Curiosities</li>
+                    <li>Black Market Organics</li>
+                    <li>Lottery Access Codes</li>
+                    <li>Underground Events</li>
+                    <li>Custom Requests</li>
+                </ul>
+            </ul>
+
+        </div>
+
+        <div class="news">News/Posts</div>
+        <div class="footer">Footer
+            <a href="{{ url_for('delete') }}">
+                <p>Delete Account</p>
+            </a>
+            <p>Settings</p>
+        </div>
+        <div class="main">
+            {% block main_content %}
+
+            {% endblock %}
+        </div>
+    </div>
+
+
+    <script src="{{ url_for('static', filename='frontend.js') }}"></script>
+</body>
+
+</html>

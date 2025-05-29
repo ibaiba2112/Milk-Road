@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block main_content %}
+<h2>Account/Settings</h2>
+
+{% for user in UserInfo %}
+    <div>
+    <b><div>First Name: {{ user["first_name"] }}</div>
+    <div>Last Name: {{ user["last_name"] }}</div>
+    <div>Username: {{ user["username"] }}</div>
+    <div>DOB: {{ user["birthday"] }}</div>
+    <div>Password: >hidden< </div>
+    <div>Wallet: {{ user["funds"] }}฿</div></b>
+    </div>
+{% endfor %}
+
+
+{% endblock %}

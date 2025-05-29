@@ -1,0 +1,48 @@
+
+.exchange_toggle{
+    position: absolute;
+    right: 300px;
+    background-color: #5e9f21;
+    border-radius: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.exchange_toggle  i{
+    color: #ffffff; 
+}
+
+.exchange_toggle:hover{
+    position: absolute;
+    right: 300px;
+    background-color: #F0F2F5;
+    border-radius: 10px; 
+    transition: 0.2s;
+}
+
+.exchange_toggle:hover i{
+    color: #5e9f21; 
+    transition: 0.2s;
+
+}
+
+#toggle-right{
+    opacity: 1;
+    transition: opacity 0.2s ease;
+}
+#toggle-left{
+    position: absolute; /* Arrow right will be default, the page will ignore left arrow*/
+    right: 60px;/* placing the left(ignored) arrow over the right default arrow and then toglle on and off */
+    top: 5px;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.toggle #toggle-right{
+    opacity: 0; /* hides right arrow when i toggle right*/
+}
+
+
+.toggle #toggle-left{
+    opacity: 1; /* shwows left arrow when i toggle left*/ 
+}

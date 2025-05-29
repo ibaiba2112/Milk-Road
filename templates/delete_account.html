@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='regLog.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container">
+    <div id="heading">
+        <img src="/static/silk.svg">
+        <div id="heading_text">
+        <h1>Milk Road</h1>
+        <em><h2 id="sub_text">A random marketplace</h2></em>
+        </div>
+
+        
+
+    </div>
+    <div id="logReg">
+        <p>Account Deletion</p>
+        {% block main_content %}
+        <form accept="" method="post" novalidate>
+            {{ form.hidden_tag() }}
+
+            {{ form.username.label }}
+            {{ form.username() }}
+            {% for error in form.username.errors %}
+                {{ error }}
+            {% endfor %}
+            <br>
+            {{ form.password.label }}
+            {{ form.password() }}
+            {% for error in form.password.errors %}
+                {{ error }}
+            {% endfor %}
+            <br>
+            {{ form.submit }}
+
+
+        </form>
+        {% endblock %}
+        <hr>
+        <div id="descript">
+        </div>
+        <a href="{{ url_for('index') }}"><p>Back</p></a>
+    </div> <!--Logged in box -->
+    </div>
+    </body>
+</body>
+</html>

@@ -1,0 +1,177 @@
+body{
+font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+background-color: #F0F2F5;
+}
+
+#container{
+display: flex;
+justify-content: center;
+margin-top: 3%;
+}
+
+#heading{
+width: 700px;
+height: 625px;
+display: flex;
+color: #3C7D00;
+}
+
+#reg_heading{
+    width: 700px;
+    height: 800px;
+    display: flex;
+    color: #3C7D00;
+
+}
+
+#heading img{
+    height: 300px;
+}
+
+
+#logReg{
+width: 500px;
+height: 450px;
+border: 1px solid none;
+border-radius: 10px;
+text-align: center;
+font-size: 40px;
+font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+background-color: white;
+box-shadow: 5px 5px 5px grey;
+}
+
+#wallet_container{
+    width: 500px;
+    height: 600px;
+    border: 1px solid none;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 40px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: white;
+    box-shadow: 5px 5px 5px grey;
+    }
+#wallet_container > p{
+    font-size: 25px;
+    margin-bottom: 5px;
+}
+#bitcoin_balance{
+    position: absolute;
+    font-size: 10px;
+    top: 55px;
+    margin-left: 10px;
+    border-radius: 5px;
+    background-color: #F0F2F5;
+    border: none;
+    border-radius: 2px;
+}
+
+#logReg > p{
+    font-size: 25px;
+    margin-bottom: 0px;
+}
+
+#conversion_mode{
+    position: absolute;
+    display: none;
+
+}
+#username, #password, #password1, #password2, #first_name, #last_name, #birthday, #target_currency, #input_amount{
+    margin-top: 30px;
+    width: 440px;
+    height: 40px;
+    border-radius: 5px;
+    background-color: #F0F2F5;
+    border: none;
+    font-size: 25px;
+}
+
+#currency_display{
+    margin-top: 30px;
+    width: 440px;
+    height: 40px;
+    border-radius: 5px;
+    background-color: #F0F2F5;
+    border: none;
+    font-size: 25px;
+    margin-left: 30px;
+    text-align: left;
+}
+
+#register_form{
+    width: 500px;
+    height: 600px;
+    border: 1px solid none;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 40px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: white;
+    box-shadow: 5px 5px 5px grey;
+    
+
+}
+#register_form > p, #register_form > a{
+    font-size: 20px;
+}
+#submit, #convert{
+    width: 450px;
+    height: 50px;
+    background-color: #5e9f21;
+    color: white;
+    font-size: 30px;
+    margin-top: 25px;
+    border-radius: 10px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border: none;
+}
+#submit:hover, #convert:hover{
+    background-color: #3C7D00;
+    transition: .2s;
+}
+img{
+    height: 30%;
+}
+
+#heading_text > h1{
+    font-size: 75px;
+    margin-bottom: -15px;
+}
+hr{
+    width: 90%;
+}
+#descript{
+    font-size: 25px;
+    display: flex;
+    justify-content:center;
+    gap: 40px;
+    margin-top: -30px;
+}
+#descript > a{
+    font-size: 25px;
+    text-decoration: none;
+    color: black;
+
+}
+#logReg > a{
+    font-size: 25px;
+    text-decoration: none;
+    color: black;
+}
+
+#wallet_container > a{
+    font-size: 25px;
+    text-decoration: none;
+    color: black;
+}
+
+
+#descript > a:hover, #logReg > a:hover, #wallet_container > a:hover{
+    text-decoration: underline;
+}
+
+footer{
+    margin-top:80px ;
+    text-align: center;
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='regLog.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container">
+        <div id="reg_heading">
+            <img src="/static/silk.svg">
+            <div id="heading_text">
+            <h1>Milk Road</h1>
+            <em><h2 id="sub_text">A random marketplace</h2></em>
+            <div id="register_form">
+                <p>Sign up to Milk Road</p>
+            {% block main_content %}
+            <form action="" method="post" novalidate>
+                {{ form.hidden_tag() }}
+
+                {{ form.first_name.label }}
+                {{ form.first_name() }}
+                {% for error in form.first_name.errors %}
+                    {{ error }}
+                {% endfor %}
+                <br>
+                {{ form.last_name.label }}
+                {{ form.last_name() }}
+                {% for error in form.last_name.errors %}
+                    {{ error }}
+                {% endfor %}
+                <br>
+                {{ form.birthday.label }}
+                {{ form.birthday() }}
+                {% for error in form.birthday.errors %}
+                    {{ error }}
+                {% endfor %}
+                <br>
+                {{ form.username.label }}
+                {{ form.username() }}
+                {% for error in form.username.errors %}
+                    {{ error }}
+                {% endfor %}
+                <br>
+                {{ form.password1.label }}
+                {{ form.password1() }}
+                {% for error in form.password1.errors %}
+                    {{ error }}
+                {% endfor %}
+                <br>
+                {{ form.password2.label }}
+                {{ form.password2() }}
+                {% for error in form.password2.errors %}
+                    {{ error }}
+                {% endfor %}
+                <br>
+                
+                {{ form.submit }}
+            </form>
+            {% endblock %}
+            <a href="{{ url_for('index') }}"><p>Back</p></a>
+            </div>
+            </div>
+    </div>
+</body>
+</html>

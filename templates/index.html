@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+<div id="item_grid">
+    
+    {% for product in products %}
+    <div id="item_container">
+        <a href="{{ url_for('product', serialNum=product['serialNum']) }}">
+            <img src="{{ product['image'] }}">
+        </a>
+        <div id="item_name">
+            <a href="{{ url_for('product', serialNum=product['serialNum']) }}">
+                <b>{{ product["name"] }}</b>
+            </a>
+        </div>
+    <div id="item_price">฿{{ product["price"] }}</div>
+    <div id="item_details">Click for Details</div>
+    </div>
+    {% endfor %}
+   
+</div>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+<!-- <div id="item_grid">
+    
+    {% for product in products %}
+    <div id="item_container">
+    
+    <tr>
+        <td colspan="2"><a href="{{ url_for('delete') }}"><img src="{{ product['image'] }}"></a></td>
+    <tr>
+        <td colspan="2" id="item_name"><a href="{{ url_for('delete') }}"><b>{{ product["name"] }}</b></a></td>
+    </tr>
+    <td id="item_price">฿{{ product["price"] }}</td>
+    <td id="item_details">Click for Details</td>
+    </tr>
+</div>
+    {% endfor %}
+    
+</table> -->

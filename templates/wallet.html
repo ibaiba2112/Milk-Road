@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/a40a80e33c.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='regLog.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='exchange_toggle.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="container">
+        <div id="heading">
+            <img src="/static/silk.svg">
+            <div id="heading_text">
+                <h1>Milk Road</h1>
+                <em>
+                    <h2 id="sub_text">A random marketplace</h2>
+                </em>
+            </div>
+
+
+
+        </div>
+
+        {% block main_content %}
+        <form action="" method="post" novalidate>
+            {{ wallet_form.hidden_tag() }}
+        
+            <div id="wallet_container">
+                <p>Milk Road Wallet</p>
+                {% if g.user %}
+                    <h5 style="color: #3C7D00" id="bitcoin_balance">Total Funds(฿): <b style="color: #3C7D00">฿ {{ g.funds }}</b></h5>
+                {% else %}
+                    <h5 style="color: #3C7D00" id="bitcoin_balance">Total Funds(฿): <i style="color: #3C7D00">฿ </i></h5>
+                {% endif %}
+                <label for="conversion_mode">
+                    {{ wallet_form.conversion_mode() }}
+                <div class="exchange_toggle" onclick="exchangeToggle();">
+                    
+                    <i id="coins" class="fa-solid fa-coins"></i>
+                    <span id="exchange-toggle-icon">
+                        <i id="toggle-right" class="fa-solid fa-arrow-right"></i>
+                        <i id="toggle-left" class="fa-solid fa-arrow-left"></i>
+                    </span>
+                    <i id="bitcoin" class="fa-brands fa-bitcoin"></i>
+                </div>
+                </label>
+        
+        
+                <br>
+        
+                <br>
+                {{ wallet_form.target_currency.label }}
+                {{ wallet_form.target_currency() }}
+                {% for error in wallet_form.target_currency.errors %}
+                {{ error }}
+                {% endfor %}
+                <br>
+                {{ wallet_form.input_amount.label }}
+                {{ wallet_form.input_amount() }}
+                {% for error in wallet_form.input_amount.errors %}
+                {{ error }}
+                {% endfor %}
+                <br>
+                {{ wallet_form.convert() }}
+        </form>
+        
+        <div id="currency_display">
+            {% if btc_value is not none %}
+            <p style="color: #3C7D00">{{ wallet_form.input_amount.data }} {{ wallet_form.target_currency.data.upper() }} = <b
+                    style="color:red;">{{ btc_value|round(8) }} BTC(₿)</b></p>
+            {% elif currency_value is not none %}
+            <b style="color:red;">{{ wallet_form.input_amount.data }} BTC(₿) =</b> <i style="color:#3C7D00;">{{ currency_value|round(2) }} {{ wallet_form.target_currency.data.upper() }}</i>
+            {% else %}
+            <i style="color: gray;">Output will show here...</i>
+            {% endif %}
+        
+            <form action="" method="post" novalidate>
+                {{ funds_form.hidden_tag() }}
+                <br>
+                {{ funds_form.add_funds.label }}
+                {{ funds_form.add_funds() }}
+                {% for error in funds_form.add_funds.errors %}
+                {{ error }}
+                {% endfor %}
+                <br>
+                {{ funds_form.deduct_funds.label }}
+                {{ funds_form.deduct_funds() }}
+                {% for error in funds_form.deduct_funds.errors %}
+                {{ error }}
+                {% endfor %}
+                <br>
+                {{ funds_form.confirm() }}
+
+            </form>
+        
+            {% endblock %}
+            </div>
+
+            <hr>
+            <div id="descript">
+                <a href="{{ url_for('registration') }}">
+                    <p>Sign up</p>
+                </a>
+                <a>
+                    <p>Forgot Account?</p>
+                </a>
+            </div>
+            <a href="{{ url_for('index') }}">
+                <p>Back</p>
+            </a>
+        </div>
+        <!--Logged in box -->
+    </div>
+</body>
+<footer><small>&copy; 2024 Dylan Walsh. All rights reserved..</small></footer>
+
+<script src="{{ url_for('static', filename='frontend.js') }}"></script>
+</body>
+
+</html>
+
