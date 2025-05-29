@@ -373,7 +373,7 @@ def cart():
         "category": product["category"],
         "quantity": session["cart"][serialNum]
     }
-        total_cart_value = 
+        # total_cart_value = 
         
         total_cart_count = sum(session["cart"].values())
         print(f'Total Cart: {total_cart_count}')
