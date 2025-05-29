@@ -26,7 +26,7 @@ def show_logged_user():
 
     g.user_id = session.get('user_id', None)
     print(f'{g.user_id}')
-    
+
     
 #  Login Required #
 def login_required(view):
@@ -343,18 +343,116 @@ def product(serialNum):
 
     # /// CART ROUTES /// #
 # /// CART/ADD-TO-CART/INC-DEC CART /// #
+
+
+
+@app.context_processor # This decorator runs whenever a template is rendered*(doesnt matter which one), It will automically be added to every template. You dont need to rewirtie product=product in every route
+def inject_cart_count():
+    cart = session.get("cart", {}) # getting the 'cart' key from the flask session if it exists
+    total_cart_count = sum(cart.values()) # summing all cart values together
+    return dict(total_cart_count=total_cart_count)  # returning a dict(total_cart_count with a total count that can be shown in any html template YAYAYAYA)
+
+
 @app.route("/cart")
 @login_required
 def cart():
     if "cart" not in session:
         session["cart"] = {}
-    names = {}
+    products = {}
     db = get_db()
+    total_cart_count = 0
+    total_cart_value = 0
+
     for serialNum in session["cart"]:
         product = db.execute("""SELECT * FROM Products
                                 WHERE serialNum = ?;""", (serialNum,)).fetchone()
-        name = product["name"]
-        names[serialNum] = name
-    return render_template("cart.html", cart=session["cart"], names=names)
+        products[serialNum] = {
+        "name": product["name"],
+        "price": product["price"],
+        "image": product["image"],
+        "category": product["category"],
+        "quantity": session["cart"][serialNum]
+    }
+        total_cart_value = 
+        
+        total_cart_count = sum(session["cart"].values())
+        print(f'Total Cart: {total_cart_count}')
+        # TODO:
+        #   --> I added {% if g.user for the cart %}
+        #   --> So it shows your cart when you're logged in but shows 0 when you're not
+        #   --> But when you log back in, it forgets your session. There is no persistence
+        #   --> Will wokr on this later
+        #   --> Also also add costs of the products in correspondence with the wallet
+
+
+    return render_template("cart.html", cart=session["cart"], products=products, total_cart_count=total_cart_count)
+
+# Add to Cart
+@app.route("/add_to_cart/<int:serialNum>")
+@login_required
+def add_to_cart(serialNum):
+    if "cart" not in session: # if cart doesnt exist --> then create a cart dictionary
+        session["cart"] = {}
+    if serialNum not in session["cart"]: # if product doesnt already exist in the cart
+        session["cart"][serialNum] = 1
+        print(f'{session["cart"]} # DEUBG (Newly added product)')
+    else:
+        session["cart"][serialNum] = session["cart"][serialNum] + 1 # if product with same serialNum already exists in the cart
+        print(f'{session["cart"]} DEBUG (Adding already existing product in cart)')
+    session.modified = True
+    return redirect( url_for("cart"))
+
+# Remove from Cart
+@app.route("/remove_from_cart/<int:serialNum>")
+@login_required
+def remove_from_cart(serialNum):
+    # If serialNum value exists in cart key in the session
+    if serialNum in session["cart"]:
+        # Delete the whole item with the specific value
+        del session["cart"][serialNum]
+        print(f'{session["cart"]} DEBUG (Deleting whole item with "remove item" option')
+    session.modified = True
+    return redirect( url_for("cart"))
+
+# Increment Cart
+@app.route("/increment_cart/<int:serialNum>")
+@login_required
+def increment_cart(serialNum):
+    if serialNum not in session["cart"]: # Works similar to 'ADD_TO_CART', adds new item with the given serialNum and assigns it as 1
+        session["cart"][serialNum] = 1
+        print(f'{session["cart"]} # DEUBG (Newly added product (+))')
+    else:
+        session["cart"][serialNum] = session["cart"][serialNum] + 1 # Works similar to 'ADD_TO_CART' again, just increments the pre-existing item
+        print(f'{session["cart"]} DEBUG (Adding already existing product in cart (+))')
+
+    session.modified = True
+    return redirect( url_for("cart"))
+
+# Decrement Cart 
+@app.route("/decrement_cart/<int:serialNum>")
+@login_required
+def decrement_cart(serialNum):
+    if serialNum in session["cart"]: # If item with speicifc serialNum is in Cart
+        session["cart"][serialNum] -= 1 # deduct 1 from cart from key with the specific serialNum 
+        print(f'{session["cart"]} # DEUBG (DELETING Existing product (-))')
+
+        if session["cart"][serialNum] <= 0: # If item is greater or equal to 0
+            del session["cart"][serialNum] # just get rid of the key from the cart diciotnary
+            print(f'{session["cart"]} DEBUG (Deleting last product in cart (Getting rid of item key) (-))')
+
+    session.modified = True
+    return redirect( url_for("cart"))
+
+# Clear Cart
+@app.route("/clear_cart")
+@login_required
+def clear_cart():
+    # If the cart exists at all in the session
+    if session["cart"]:
+        # Delete the whole cart
+        print(f'{session["cart"]} DEBUG  (Deleting Whole cart)')
+        del session["cart"]
+    session.modified = True
+    return redirect( url_for("cart"))
 
         

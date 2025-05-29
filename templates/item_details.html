@@ -29,8 +29,8 @@
 
 
 
-<p>
-    <p>Placeholder cart option</p>
+<p id="item_name">
+    <a href="{{ url_for('add_to_cart', serialNum=product['serialNum']) }}">Add To Cart</a>
 </p>
 <p id="item_name">
     <a href="{{ url_for('index') }}">Go Back</a>

@@ -242,9 +242,6 @@ a{
     width: 15em;
 }
 
-
-
-
 /* SINGLE PRODUCT */
 #single_item_grid {
     display: grid;
@@ -268,3 +265,73 @@ a{
     border-radius: 10px;
     width: 45em;
 }
+
+
+/* CART STYLING */
+
+/* #cart_container{
+    
+} */
+
+#cart_container > div{
+    display: flex;
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+table img{
+    width: 150px;
+    height: 70px;
+    padding: 10px;
+}
+
+/* div > td{
+    background-color: #3C7D00;
+} */
+
+tr #name, tr #category,tr #remove{
+    display: flex;
+    padding-top: 8px;
+    
+    
+}
+th{
+    color: #666666; 
+}
+
+#price, #increment, #decrement, #quantity, #total{
+    padding-left: 40px;
+    padding-right: 40px;
+    font-size: 20px;
+}
+
+#decrement{
+    padding-left: 10px;
+}
+
+#increment{
+    padding-right: 10px;
+    font-size: 25px;
+}
+
+#quanity {
+    /* border: 1px solid black;       */
+    color: #666666;             
+    border-radius: 4px;           
+    text-align: center;         
+    cursor: default; /*  shows regular cursor, not clicky one */
+    padding: 10px;
+    min-width: 30px;        /* keeps it from squishing too narrow */
+    margin-top: 40px;
+}
+
+
+#quanity:hover {
+    background-color: #e0e0e0;    
+    color: #333333;  
+    transition: 0.2s;             
+}
+
+
+

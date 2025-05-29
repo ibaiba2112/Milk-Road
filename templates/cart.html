@@ -1,32 +1,57 @@
 {% extends 'base.html' %}
 
 {% block main_content %}
-
-<h1>TEST</h1>
-
-<h1>Your cart</h1>
-{% if cart %}
-    <a href="{{ url_for('order') }}">Click to Purchase</a>
+<div id="cart_container">
+    <div>
+        <h2>Shopping cart</h2>
+        <h2>{{ total_cart_count }} Items</h2>
+    </div>
+    <hr>
+    {% if cart %}
+    {#
+    <!-- <a href="{{ url_for('order') }}">Click to Purchase</a> --> #}
+    <!-- <a>Click to Purchase</a> -->
     <table>
-        {% for serialNum in cart %}
         <tr>
-            <td>{{ names[serialNum] }}</td>
-             <td><a href="{{ url_for('remove_from_cart', serialNum=serialNum) }}">Remove Item</a></td> 
-            <td>{{ cart[serialNum] }}</td>
-            <td><a href="{{ url_for('increment_cart', serialNum=serialNum) }}">+</a></td>
-            <td><a href="{{ url_for('decrement_cart', serialNum=serialNum) }}">-</a></td>
+            <th>Product Details</th>
+            <th></th>
+            <th colspan="1">Price</th>
+            <th colspan="3">Quantity</th>
+            <th>Total</th>
+        </tr>
+        {% for serialNum, item in products.items() %}
+        <tr>
+            <!-- Images -->
+            <td><img src="{{ item.image }}" alt="{{ item.name }}"></td>
+
+            <!-- Name/Type/Remove -->
+            <td id="name">{{ item.name }}</td>
+            <td id="category">{{ item.category }}</td>
+            <td id="remove"><a href="{{ url_for('remove_from_cart', serialNum=serialNum) }}">Remove</a></td>
+
+            <!-- Price -->
+            <td id="price">฿{{ item.price }}</td>
+            
+            <!-- (-/+) quantity -->
+            <td id="increment"><a href="{{ url_for('decrement_cart', serialNum=serialNum) }}">-</a></td>
+            <td id="quanity">{{ item.quantity }}</td>
+            <td id="decrement"><a href="{{ url_for('increment_cart', serialNum=serialNum) }}">+</a></td>
+           
+            <!-- Total -->
+            <td id="total"><a>Total</a></td>
         </tr>
         {% endfor %}
     </table>
     {% else %}
-        <p>Your cart is empty!</p>
+    <p>Your cart is empty!</p>
     {% endif %}
-<p>
-    <a href="{{ url_for('products') }}">Continue Shopping</a>
-</p>
-<p>
-    <a href="{{ url_for('clear_cart') }}">Clear Cart</a>
-</p>
+    <p>
+        <a href="{{ url_for('index') }}">Continue Shopping</a>
+    </p>
+    <p>
+        <a href="{{ url_for('clear_cart') }}">Clear Cart</a>
+    </p>
+</div>
 
 
 {% endblock %}
