@@ -361,7 +361,7 @@ def cart():
     products = {}
     db = get_db()
     total_cart_count = 0
-    total_cart_value = 0
+    total = 0 #  init for the total price 
 
     for serialNum in session["cart"]:
         product = db.execute("""SELECT * FROM Products
@@ -373,10 +373,27 @@ def cart():
         "category": product["category"],
         "quantity": session["cart"][serialNum]
     }
-        # total_cart_value = 
+
+        total_cart_count = sum(session["cart"].values()) # DEBUG --> Getting total item count in cart from the session(Not total price)
+        print(f'Total Cart: {total_cart_count}') # DEBUG --> Printing total item count in cart
+
         
-        total_cart_count = sum(session["cart"].values())
-        print(f'Total Cart: {total_cart_count}')
+        price_accum_list = [] # init price list
+        for key, value in products.items():
+            print(f'Key:{key} Value:{value}') # DEBUG --> iterating over serialNum:product[dictionary] to show all product details
+
+            name = value['name'] # Shows item name
+            price = value['price'] # Shows item price
+            quantity = value['quantity'] # Shows item quantity
+            print(f'Product: {name} Price: {price} Quantity: {quantity}')
+            
+            price_accum_list.append(price * quantity) # DEBUG --> Showing list of all prices for every item picked in a price list, I am also multiplying price with QUANTITY so it will adjust prices of items depedning on their quantity
+            print(price_accum_list)
+
+            total = sum(price_accum_list) # DEBUG --> Summing all prices toghether in the price list
+            print(total)
+        # print(type(products[serialNum]['price'])) # DEBUG --> Finding d-type for price in sql
+
         # TODO:
         #   --> I added {% if g.user for the cart %}
         #   --> So it shows your cart when you're logged in but shows 0 when you're not
@@ -385,7 +402,7 @@ def cart():
         #   --> Also also add costs of the products in correspondence with the wallet
 
 
-    return render_template("cart.html", cart=session["cart"], products=products, total_cart_count=total_cart_count)
+    return render_template("cart.html", cart=session["cart"], products=products, total_cart_count=total_cart_count, total=total)
 
 # Add to Cart
 @app.route("/add_to_cart/<int:serialNum>")

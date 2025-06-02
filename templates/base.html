@@ -60,24 +60,21 @@
                     <div>Advanced Search</div>
                 </a>
                 <a>
-                    <div>Inbox(0)</div>
+                    <div><i class="fa-solid fa-inbox"></i>Inbox(0)</div>
                 </a>
                 <a>
-                    <div>Orders(0)</div>
+                    <div><i class="fa-solid fa-truck"></i>Orders(0)</div>
                 </a>
 
                 {% if g.user %}
-                <a href="{{ url_for('cart') }}">
-                    <div>Your Cart({{ total_cart_count}})</div>
+                <a href="{{ url_for('cart') }}"><div><i class="fa-solid fa-cart-shopping"></i>Cart({{ total_cart_count}})</div>
                 {% else %}
-                <a href="{{ url_for('cart') }}">
-                    <div>Your Cart(0)</div>
-                </a>
+                <a href="{{ url_for('cart') }}"><div><i class="fa-solid fa-cart-shopping"></i>Cart(0)</div></a>
                 {% endif %}
 
                 </a>
                 <a href="{{ url_for( 'account_details') }}">
-                    <div>Account</div>
+                    <div><i class="fa-solid fa-user"></i>Account</div>
                 </a>
 
             </div>

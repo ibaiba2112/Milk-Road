@@ -8,8 +8,7 @@
     </div>
     <hr>
     {% if cart %}
-    {#
-    <!-- <a href="{{ url_for('order') }}">Click to Purchase</a> --> #}
+    {#<!-- <a href="{{ url_for('order') }}">Click to Purchase</a> --> #}
     <!-- <a>Click to Purchase</a> -->
     <table>
         <tr>
@@ -31,27 +30,44 @@
 
             <!-- Price -->
             <td id="price">฿{{ item.price }}</td>
-            
+
             <!-- (-/+) quantity -->
             <td id="increment"><a href="{{ url_for('decrement_cart', serialNum=serialNum) }}">-</a></td>
             <td id="quanity">{{ item.quantity }}</td>
             <td id="decrement"><a href="{{ url_for('increment_cart', serialNum=serialNum) }}">+</a></td>
-           
+
             <!-- Total -->
-            <td id="total"><a>Total</a></td>
+            <td id="item_total">฿{{ item.price * item.quantity }}</td>
         </tr>
         {% endfor %}
     </table>
     {% else %}
-    <p>Your cart is empty!</p>
+    <div id="empty_cart">
+        <strong>Your cart is empty!</strong>
+    </div>
     {% endif %}
-    <p>
-        <a href="{{ url_for('index') }}">Continue Shopping</a>
-    </p>
-    <p>
-        <a href="{{ url_for('clear_cart') }}">Clear Cart</a>
-    </p>
-</div>
+
+    <hr>
+    {% if cart %}
+        <div id="total_cost_box">
+            <b>Total Cost:</b>
+            <b>฿{{ total }}</b>
+        </div>
+    {% else %}
+        <div id="total_cost_box">
+            <b>Total Cost:</b>
+            <b>฿0.0</b>
+        </div>
+    {% endif %}
+
+    <div id="checkout">
+        <p></p>
+        <div id="checkout_box">Proceed To checkout</div>
+    </div>
+    </div>
+        <p id="continue_shopping"><a href="{{ url_for('index') }}">Continue Shopping</a></p>
+        <p id="clear_cart"><a href="{{ url_for('clear_cart') }}">Clear Cart</a></p>
+    </div>
 
 
 {% endblock %}
