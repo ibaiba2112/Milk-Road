@@ -62,3 +62,10 @@ class FundsForm(FlaskForm):
     add_funds = DecimalField('', render_kw={"placeholder": "Deposit Funds Here"}, validators=[Optional()])
     deduct_funds = DecimalField('', render_kw={"placeholder": "Withdraw Funds Here"}, validators=[Optional()])
     confirm = SubmitField('Confirm Transaction')
+
+
+# ORDERS FORMS
+class OrdersForm(FlaskForm):
+    delivery_address = StringField('', render_kw={'placeholder': 'Delivery Address...'})
+    total_price = DecimalField('', render_kw={'placeholder': 'Total Price...'})
+    confirm_purchase = SubmitField('Purchase')

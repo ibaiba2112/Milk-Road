@@ -10,10 +10,11 @@
 --     funds TEXT DEFAULT '0.01234456',
 --     password TEXT NOT NULL
 -- );
-
 -- DROP TABLE UserInfo;
 
 
+
+-- PRODUCTS
 -- DROP TABLE IF EXISTS Products;
 -- CREATE TABLE Products (
 --     serialNum INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -54,9 +55,6 @@
 
 -- And so on for Services, Clothes, RandomStuff, etc.
 
-
-
-
 -- Insert products (weapons)
 -- INSERT INTO Products (name, category, price, image, description) VALUES
 -- ('1973 Colt AR-15', 'weapon', 1340, 'static/images/1973_Colt_AR15.jpeg', 'Classic semi-automatic rifle developed from the original M16 platform.'),
@@ -80,16 +78,14 @@
 -- (7, '.50 BMG', '13.6 kg', '914 mm'),
 -- (8, '7.62×51mm NATO', '3.58 kg', '406 mm'),
 -- (9, '.357 Magnum', '1.25 kg', '102 mm');
-
-
 -- DROP TABLE Products;
 
 
-
-
--- ALTER TABLE Products
--- ADD image BLOB;
-
--- UPDATE Music
--- SET image = 'static/1973_Colt_AR15.jpeg'
--- WHERE artist = 'Yes';
+-- ORDERS
+-- DROP TABLE IF EXISTS Orders;
+-- CREATE TABLE Orders(
+--     order_id INTEGER PRIMARY KEY AUTOINCREMENT,
+--     order_delivery_address TEXT,
+--     order_total_price REAL,
+--     order_timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+-- );

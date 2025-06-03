@@ -1,5 +1,5 @@
 from flask import Flask, render_template, session, g, url_for, redirect, request, jsonify
-from forms import SearchForm, LoginForm, RegisterForm, DeleteForm, WalletForm, FundsForm
+from forms import SearchForm, LoginForm, RegisterForm, DeleteForm, WalletForm, FundsForm, OrdersForm
 from flask_session import Session
 from database import get_db, close_db
 from functools import wraps
@@ -340,12 +340,8 @@ def product(serialNum):
     return render_template("item_details.html", product=product, details=details)
 
 
-
     # /// CART ROUTES /// #
 # /// CART/ADD-TO-CART/INC-DEC CART /// #
-
-
-
 @app.context_processor # This decorator runs whenever a template is rendered*(doesnt matter which one), It will automically be added to every template. You dont need to rewirtie product=product in every route
 def inject_cart_count():
     cart = session.get("cart", {}) # getting the 'cart' key from the flask session if it exists
@@ -473,3 +469,34 @@ def clear_cart():
     return redirect( url_for("cart"))
 
         
+    # /// Orders \\\ #
+# /// Orders/Order<int:order_id>/Order History \\\ # 
+# Order History
+# @app.route("/OrderHistory")
+# @login_required
+# def orderHistory():
+#     db = get_db()
+#     orderHistory = db.execute(
+#                         """SELECT * FROM Orders;""").fetchall()
+#     return render_template("orderHistory.html", orderHistory=orderHistory)
+
+@app.route('/order', methods=["GET", "POST"])
+@login_required
+def order():
+
+    form = OrdersForm()
+    if form.validate_on_submit():
+        delivery_address = form.delivery_address.data
+
+        if form.total_price.data:
+            total_price = Decimal(str(form.total_price.data))
+
+        db = get_db()
+        db.execute("""INSERT INTO Orders(order_delivery_address, order_total_price)
+                      VALUES (?, ?);""",
+                      (delivery_address, str(total_price)))
+        db.commit()
+        return redirect( url_for('index'))
+    return render_template('order.html', form=form)
+
+

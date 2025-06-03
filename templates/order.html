@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block main_content %}
+
+<h1>TEST</h1>
+<form action="" method="POST" novalidate>
+    {{ form.hidden_tag() }}
+
+    {{ form.delivery_address() }}
+    {% for error in form.delivery_address.errors %}
+    {{ error }}
+    {% endfor %}
+
+    <br>
+
+    {{ form.total_price() }}
+    {% for error in form.total_price.errors %}
+    {{ error }}
+    {% endfor %}
+
+    {{ form.confirm_purchase }}
+
+</form>
+{% endblock %}
