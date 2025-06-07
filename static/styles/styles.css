@@ -253,6 +253,19 @@ a{
         border-radius: 10px;
 }
 
+.pagination_container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.pagination_container a:hover{
+    text-decoration: underline;
+}
+
+#previous_page_counter{
+    margin-right: 90px;
+}
+
 
 #item_details{
     text-align: end;

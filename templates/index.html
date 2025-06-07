@@ -17,8 +17,23 @@
     <div id="item_details">Click for Details</div>
     </div>
     {% endfor %}
-   
 </div>
+
+<div class="pagination_container">
+
+    {% if page > 1 %}
+        <a href="{{ url_for('index', page=page-1) }}">Previous</a>
+        <div id="previous_page_counter" >Page {{ page }} of {{ total_pages }}</div>
+    {% endif %}
+
+    <div></div>
+
+    {% if page < total_pages %}
+        <div>Page {{ page }} of {{ total_pages }}</div>
+        <a href="{{ url_for('index', page=page+1) }}">Next</a>
+    {% endif %}
+</div>
+
 {% endblock %}
 
 

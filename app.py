@@ -40,10 +40,26 @@ def login_required(view):
 # Index/Base #
 @app.route("/")
 def index():
+    # PAGINATION SECTION
+    page = request.args.get('page', 1, type=int) # Defining the page a user is on, if user is on page 2, page =2, if no page then default to 1, int makes sure it's a number
+    per_page = 9 # limit to 9 items on the page
+    offset = (page - 1) * per_page # this is the position where you fetch the products for the NEXT PAGE
+            # Page 1: (1-1) * 9 = 0 → start from item 0 
+            # Page 2: (2-1) * 9 = 9 → start from item 9
+            # Page 3: (3-1) * 9 = 18 → start from item 18
+
     db = get_db()
+
+    total_products = db.execute("""SELECT COUNT(*) FROM Products""").fetchone()[0] # Getting total number of producst in db
+    print(total_products)
+
+    #
     products = db.execute(
-    """SELECT * FROM Products;""").fetchall()
-    return render_template("index.html", products=products)
+    """SELECT * FROM Products LIMIT ? OFFSET ?;""", (per_page, offset)).fetchall() # Fetching products using limt and offset
+
+    total_pages = (total_products + per_page - 1) // per_page # Calculated total pages needed
+
+    return render_template("index.html", products=products, page=page, total_pages=total_pages)
     
     #  /// ACCOUNT ROUTES /// #
 # /// LOGIN/SIGNUP/LOGOUT/DELETE /// #
