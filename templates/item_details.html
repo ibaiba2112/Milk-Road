@@ -13,15 +13,348 @@
             </a>
         </div>
     <div id="item_price">฿{{ product["price"] }}</div>
+
+    <!-- WEAPONS -->
+    {% if product['category'] == 'firearm'  %}
     <ul>
-        <li id="item_name">Caliber: {{ details["caliber"] }}</li>
-        <li id="item_name">Weight(kg): {{ details["weight"] }}</li>
-        <li id="item_name">Barrel Length: {{ details["barrel_length"] }}</li>
-        <li id="item_name">Description: {{ product["description"] }}</li>
+        <li id="item_name"><b>Caliber:</b> {{ details["caliber"] }}</li>
+        <li id="item_name"><b>Weight(kg):</b> {{ details["weight"] }}</li>
+        <li id="item_name"><b>Barrel Length:</b> {{ details["barrel_length"] }}</li>
+        <li id="item_name"><b>Description:</b> {{ product["description"] }}</li>
     </ul>
- 
+    {% elif product['category'] == 'explosive' %}
+    <ul>
+        <li id="item_name"><b>Density:</b> {{ details["density"] }}</li>
+        <li id="item_name"><b>Weight(kg):</b> {{ details["weight"] }}</li>
+        <li id="item_name"><b>Chemical Composition:</b> {{ details["chemical_composition"] }}</li>
+        <li id="item_name"><b>Sensitivity:</b> {{ details["sensitivity"] }}</li>
+        <li id="item_name"><b>Detonation Velocity:</b> {{ details["detonation_velocity"] }}</li>
+        <li id="item_name"><b>Water Resistance:</b> {{ details["water_resistance"] }}</li>
+        <li id="item_name"><b>Description:</b> {{ product["description"] }}</li>
+    </ul>
+    {% elif product['category'] == 'ammunition' %}
+    <ul>
+        <li id="item_name"><b>Caliber:</b> {{ details["caliber"] }}</li>
+        <li id="item_name"><b>Bullet Weight(kg):</b> {{ details["bullet_weight"] }}</li>
+        <li id="item_name"><b>Shape:</b> {{ details["shape"] }}</li>
+        <li id="item_name"><b>Charge:</b> {{ details["charge"] }}</li>
+        <li id="item_name"><b>Material:</b> {{ details["material"] }}</li>
+        <li id="item_name"><b>Description:</b> {{ product["description"] }}</li>
+    </ul>
+    {% elif product['category'] == 'tactical_gear' %}
+    <ul>
+        <li id="item_name"><b>Caliber:</b> {{ details["caliber"] }}</li>
+        <li id="item_name"><b>Bullet Weight(kg):</b> {{ details["bullet_weight"] }}</li>
+        <li id="item_name"><b>Shape:</b> {{ details["shape"] }}</li>
+        <li id="item_name"><b>Charge:</b> {{ details["charge"] }}</li>
+        <li id="item_name"><b>Material:</b> {{ details["material"] }}</li>
+        <li id="item_name"><b>Description:</b> {{ product["description"] }}</li>
+    </ul>
+    {% elif product['category'] == 'military_equipment' %}
+    <ul>
+        <li id="item_name"><b>Caliber:</b> {{ details["caliber"] }}</li>
+        <li id="item_name"><b>Bullet Weight(kg):</b> {{ details["bullet_weight"] }}</li>
+        <li id="item_name"><b>Shape:</b> {{ details["shape"] }}</li>
+        <li id="item_name"><b>Charge:</b> {{ details["charge"] }}</li>
+        <li id="item_name"><b>Material:</b> {{ details["material"] }}</li>
+        <li id="item_name"><b>Description:</b> {{ product["description"] }}</li>
+    </ul>
+
+    <!-- DRUGS/MEDICINE -->
+    {% elif product['category'] == 'prescription_meds' %}
+    <ul>
+        <li id="item_name"><b>Drug Name:</b> {{ details["drug_name"] }}</li>
+        <li id="item_name"><b>Dosage:</b> {{ details["dosage"] }}</li>
+        <li id="item_name"><b>Form:</b> {{ details["form"] }}</li>
+        <li id="item_name"><b>Controlled Substance:</b> {{ details["controlled_substance"] }}</li>
+        <li id="item_name"><b>Material:</b> {{ details["material"] }}</li>
+        <li id="item_name"><b>Description:</b> {{ product["description"] }}</li>
+    </ul>
+
+    {% elif product['category'] == 'illicit_drugs' %}
+    <ul>
+        <li id="item_name"><b>Caliber:</b> {{ details["caliber"] }}</li>
+        <li id="item_name"><b>Bullet Weight(kg):</b> {{ details["bullet_weight"] }}</li>
+        <li id="item_name"><b>Shape:</b> {{ details["shape"] }}</li>
+        <li id="item_name"><b>Charge:</b> {{ details["charge"] }}</li>
+        <li id="item_name"><b>Material:</b> {{ details["material"] }}</li>
+        <li id="item_name"><b>Description:</b> {{ product["description"] }}</li>
+    </ul>
+
+    {% elif product['category'] == 'research_chemicals' %}
+    <ul>
+        <li id="item_name"><b>Caliber:</b> {{ details["caliber"] }}</li>
+        <li id="item_name"><b>Bullet Weight(kg):</b> {{ details["bullet_weight"] }}</li>
+        <li id="item_name"><b>Shape:</b> {{ details["shape"] }}</li>
+        <li id="item_name"><b>Charge:</b> {{ details["charge"] }}</li>
+        <li id="item_name"><b>Material:</b> {{ details["material"] }}</li>
+        <li id="item_name"><b>Description:</b> {{ product["description"] }}</li>
+    </ul>
+
+    {% elif product['category'] == 'herbal_natural_substances' %}
+    <ul>
+        <li id="item_name"><b>Caliber:</b> {{ details["caliber"] }}</li>
+        <li id="item_name"><b>Bullet Weight(kg):</b> {{ details["bullet_weight"] }}</li>
+        <li id="item_name"><b>Shape:</b> {{ details["shape"] }}</li>
+        <li id="item_name"><b>Charge:</b> {{ details["charge"] }}</li>
+        <li id="item_name"><b>Material:</b> {{ details["material"] }}</li>
+        <li id="item_name"><b>Description:</b> {{ product["description"] }}</li>
+    </ul>
+
+    <!-- SERVICES -->
+    {% elif product['category'] == 'hacking_cyber_services' %}
+    <ul>
+        <li id="item_name"><b>Caliber:</b> {{ details["caliber"] }}</li>
+        <li id="item_name"><b>Bullet Weight(kg):</b> {{ details["bullet_weight"] }}</li>
+        <li id="item_name"><b>Shape:</b> {{ details["shape"] }}</li>
+        <li id="item_name"><b>Charge:</b> {{ details["charge"] }}</li>
+        <li id="item_name"><b>Material:</b> {{ details["material"] }}</li>
+        <li id="item_name"><b>Description:</b> {{ product["description"] }}</li>
+    </ul>
+
+    {% elif product['category'] == 'forged_documents' %}
+    <ul>
+        <li id="item_name"><b>Caliber:</b> {{ details["caliber"] }}</li>
+        <li id="item_name"><b>Bullet Weight(kg):</b> {{ details["bullet_weight"] }}</li>
+        <li id="item_name"><b>Shape:</b> {{ details["shape"] }}</li>
+        <li id="item_name"><b>Charge:</b> {{ details["charge"] }}</li>
+        <li id="item_name"><b>Material:</b> {{ details["material"] }}</li>
+        <li id="item_name"><b>Description:</b> {{ product["description"] }}</li>
+    </ul>
+
+    {% elif product['category'] == 'contractors_protection' %}
+    <ul>
+        <li id="item_name"><b>Caliber:</b> {{ details["caliber"] }}</li>
+        <li id="item_name"><b>Bullet Weight(kg):</b> {{ details["bullet_weight"] }}</li>
+        <li id="item_name"><b>Shape:</b> {{ details["shape"] }}</li>
+        <li id="item_name"><b>Charge:</b> {{ details["charge"] }}</li>
+        <li id="item_name"><b>Material:</b> {{ details["material"] }}</li>
+        <li id="item_name"><b>Description:</b> {{ product["description"] }}</li>
+    </ul>
+
+    {% elif product['category'] == 'blackmail_info_leaks' %}
+    <ul>
+        <li id="item_name"><b>Caliber:</b> {{ details["caliber"] }}</li>
+        <li id="item_name"><b>Bullet Weight(kg):</b> {{ details["bullet_weight"] }}</li>
+        <li id="item_name"><b>Shape:</b> {{ details["shape"] }}</li>
+        <li id="item_name"><b>Charge:</b> {{ details["charge"] }}</li>
+        <li id="item_name"><b>Material:</b> {{ details["material"] }}</li>
+        <li id="item_name"><b>Description:</b> {{ product["description"] }}</li>
+    </ul>
+
+    <!-- REAL ESTATE -->
+    {% elif product['category'] == 'safehouses' %}
+    <ul>
+        <li id="item_name"><b>Caliber:</b> {{ details["caliber"] }}</li>
+        <li id="item_name"><b>Bullet Weight(kg):</b> {{ details["bullet_weight"] }}</li>
+        <li id="item_name"><b>Shape:</b> {{ details["shape"] }}</li>
+        <li id="item_name"><b>Charge:</b> {{ details["charge"] }}</li>
+        <li id="item_name"><b>Material:</b> {{ details["material"] }}</li>
+        <li id="item_name"><b>Description:</b> {{ product["description"] }}</li>
+    </ul>
+
+    {% elif product['category'] == 'underground_bunkers' %}
+    <ul>
+        <li id="item_name"><b>Caliber:</b> {{ details["caliber"] }}</li>
+        <li id="item_name"><b>Bullet Weight(kg):</b> {{ details["bullet_weight"] }}</li>
+        <li id="item_name"><b>Shape:</b> {{ details["shape"] }}</li>
+        <li id="item_name"><b>Charge:</b> {{ details["charge"] }}</li>
+        <li id="item_name"><b>Material:</b> {{ details["material"] }}</li>
+        <li id="item_name"><b>Description:</b> {{ product["description"] }}</li>
+    </ul>
+
+    {% elif product['category'] == 'off_grid_cabins' %}
+    <ul>
+        <li id="item_name"><b>Caliber:</b> {{ details["caliber"] }}</li>
+        <li id="item_name"><b>Bullet Weight(kg):</b> {{ details["bullet_weight"] }}</li>
+        <li id="item_name"><b>Shape:</b> {{ details["shape"] }}</li>
+        <li id="item_name"><b>Charge:</b> {{ details["charge"] }}</li>
+        <li id="item_name"><b>Material:</b> {{ details["material"] }}</li>
+        <li id="item_name"><b>Description:</b> {{ product["description"] }}</li>
+    </ul>
+
+    <!-- LIFESTYLE / LUXURY -->
+
+    {% elif product['category'] == 'alcohol' %}
+    <ul>
+        <li id="item_name"><b>Caliber:</b> {{ details["caliber"] }}</li>
+        <li id="item_name"><b>Bullet Weight(kg):</b> {{ details["bullet_weight"] }}</li>
+        <li id="item_name"><b>Shape:</b> {{ details["shape"] }}</li>
+        <li id="item_name"><b>Charge:</b> {{ details["charge"] }}</li>
+        <li id="item_name"><b>Material:</b> {{ details["material"] }}</li>
+        <li id="item_name"><b>Description:</b> {{ product["description"] }}</li>
+    </ul>
+
+    {% elif product['category'] == 'rare_cigars_tobacco' %}
+    <ul>
+        <li id="item_name"><b>Caliber:</b> {{ details["caliber"] }}</li>
+        <li id="item_name"><b>Bullet Weight(kg):</b> {{ details["bullet_weight"] }}</li>
+        <li id="item_name"><b>Shape:</b> {{ details["shape"] }}</li>
+        <li id="item_name"><b>Charge:</b> {{ details["charge"] }}</li>
+        <li id="item_name"><b>Material:</b> {{ details["material"] }}</li>
+        <li id="item_name"><b>Description:</b> {{ product["description"] }}</li>
+    </ul>
+
+    {% elif product['category'] == 'jewelry_rare_gems' %}
+    <ul>
+        <li id="item_name"><b>Caliber:</b> {{ details["caliber"] }}</li>
+        <li id="item_name"><b>Bullet Weight(kg):</b> {{ details["bullet_weight"] }}</li>
+        <li id="item_name"><b>Shape:</b> {{ details["shape"] }}</li>
+        <li id="item_name"><b>Charge:</b> {{ details["charge"] }}</li>
+        <li id="item_name"><b>Material:</b> {{ details["material"] }}</li>
+        <li id="item_name"><b>Description:</b> {{ product["description"] }}</li>
+    </ul>
+
+    {% elif product['category'] == 'artifacts_antiquities' %}
+    <ul>
+        <li id="item_name"><b>Caliber:</b> {{ details["caliber"] }}</li>
+        <li id="item_name"><b>Bullet Weight(kg):</b> {{ details["bullet_weight"] }}</li>
+        <li id="item_name"><b>Shape:</b> {{ details["shape"] }}</li>
+        <li id="item_name"><b>Charge:</b> {{ details["charge"] }}</li>
+        <li id="item_name"><b>Material:</b> {{ details["material"] }}</li>
+        <li id="item_name"><b>Description:</b> {{ product["description"] }}</li>
+    </ul>
+
+    {% elif product['category'] == 'exotic_animals' %}
+    <ul>
+        <li id="item_name"><b>Caliber:</b> {{ details["caliber"] }}</li>
+        <li id="item_name"><b>Bullet Weight(kg):</b> {{ details["bullet_weight"] }}</li>
+        <li id="item_name"><b>Shape:</b> {{ details["shape"] }}</li>
+        <li id="item_name"><b>Charge:</b> {{ details["charge"] }}</li>
+        <li id="item_name"><b>Material:</b> {{ details["material"] }}</li>
+        <li id="item_name"><b>Description:</b> {{ product["description"] }}</li>
+    </ul>
+
+    {% elif product['category'] == 'designer_clothes' %}
+    <ul>
+        <li id="item_name"><b>Caliber:</b> {{ details["caliber"] }}</li>
+        <li id="item_name"><b>Bullet Weight(kg):</b> {{ details["bullet_weight"] }}</li>
+        <li id="item_name"><b>Shape:</b> {{ details["shape"] }}</li>
+        <li id="item_name"><b>Charge:</b> {{ details["charge"] }}</li>
+        <li id="item_name"><b>Material:</b> {{ details["material"] }}</li>
+        <li id="item_name"><b>Description:</b> {{ product["description"] }}</li>
+    </ul>
+
+    <!-- DIGITAL/TECH -->
+    {% elif product['category'] == 'software_keys_licenses' %}
+    <ul>
+        <li id="item_name"><b>Caliber:</b> {{ details["caliber"] }}</li>
+        <li id="item_name"><b>Bullet Weight(kg):</b> {{ details["bullet_weight"] }}</li>
+        <li id="item_name"><b>Shape:</b> {{ details["shape"] }}</li>
+        <li id="item_name"><b>Charge:</b> {{ details["charge"] }}</li>
+        <li id="item_name"><b>Material:</b> {{ details["material"] }}</li>
+        <li id="item_name"><b>Description:</b> {{ product["description"] }}</li>
+    </ul>
+
+    {% elif product['category'] == 'malware_exploits' %}
+    <ul>
+        <li id="item_name"><b>Caliber:</b> {{ details["caliber"] }}</li>
+        <li id="item_name"><b>Bullet Weight(kg):</b> {{ details["bullet_weight"] }}</li>
+        <li id="item_name"><b>Shape:</b> {{ details["shape"] }}</li>
+        <li id="item_name"><b>Charge:</b> {{ details["charge"] }}</li>
+        <li id="item_name"><b>Material:</b> {{ details["material"] }}</li>
+        <li id="item_name"><b>Description:</b> {{ product["description"] }}</li>
+    </ul>
+
+    {% elif product['category'] == 'stolen_data' %}
+    <ul>
+        <li id="item_name"><b>Caliber:</b> {{ details["caliber"] }}</li>
+        <li id="item_name"><b>Bullet Weight(kg):</b> {{ details["bullet_weight"] }}</li>
+        <li id="item_name"><b>Shape:</b> {{ details["shape"] }}</li>
+        <li id="item_name"><b>Charge:</b> {{ details["charge"] }}</li>
+        <li id="item_name"><b>Material:</b> {{ details["material"] }}</li>
+        <li id="item_name"><b>Description:</b> {{ product["description"] }}</li>
+    </ul>
+
+    {% elif product['category'] == 'burner_phones_sim_cards' %}
+    <ul>
+        <li id="item_name"><b>Caliber:</b> {{ details["caliber"] }}</li>
+        <li id="item_name"><b>Bullet Weight(kg):</b> {{ details["bullet_weight"] }}</li>
+        <li id="item_name"><b>Shape:</b> {{ details["shape"] }}</li>
+        <li id="item_name"><b>Charge:</b> {{ details["charge"] }}</li>
+        <li id="item_name"><b>Material:</b> {{ details["material"] }}</li>
+        <li id="item_name"><b>Description:</b> {{ product["description"] }}</li>
+    </ul>
+
+    {% elif product['category'] == 'encrypted_devices' %}
+    <ul>
+        <li id="item_name"><b>Caliber:</b> {{ details["caliber"] }}</li>
+        <li id="item_name"><b>Bullet Weight(kg):</b> {{ details["bullet_weight"] }}</li>
+        <li id="item_name"><b>Shape:</b> {{ details["shape"] }}</li>
+        <li id="item_name"><b>Charge:</b> {{ details["charge"] }}</li>
+        <li id="item_name"><b>Material:</b> {{ details["material"] }}</li>
+        <li id="item_name"><b>Description:</b> {{ product["description"] }}</li>
+    </ul>
+
+    <!-- RANDOM/MISC -->
+
+    {% elif product['category'] == 'random' %}
+    <ul>
+        <li id="item_name"><b>Caliber:</b> {{ details["caliber"] }}</li>
+        <li id="item_name"><b>Bullet Weight(kg):</b> {{ details["bullet_weight"] }}</li>
+        <li id="item_name"><b>Shape:</b> {{ details["shape"] }}</li>
+        <li id="item_name"><b>Charge:</b> {{ details["charge"] }}</li>
+        <li id="item_name"><b>Material:</b> {{ details["material"] }}</li>
+        <li id="item_name"><b>Description:</b> {{ product["description"] }}</li>
+    </ul>
+
+    {% elif product['category'] == 'curiosities' %}
+    <ul>
+        <li id="item_name"><b>Caliber:</b> {{ details["caliber"] }}</li>
+        <li id="item_name"><b>Bullet Weight(kg):</b> {{ details["bullet_weight"] }}</li>
+        <li id="item_name"><b>Shape:</b> {{ details["shape"] }}</li>
+        <li id="item_name"><b>Charge:</b> {{ details["charge"] }}</li>
+        <li id="item_name"><b>Material:</b> {{ details["material"] }}</li>
+        <li id="item_name"><b>Description:</b> {{ product["description"] }}</li>
+    </ul>
+
+    {% elif product['category'] == 'black_market_organics' %}
+    <ul>
+        <li id="item_name"><b>Caliber:</b> {{ details["caliber"] }}</li>
+        <li id="item_name"><b>Bullet Weight(kg):</b> {{ details["bullet_weight"] }}</li>
+        <li id="item_name"><b>Shape:</b> {{ details["shape"] }}</li>
+        <li id="item_name"><b>Charge:</b> {{ details["charge"] }}</li>
+        <li id="item_name"><b>Material:</b> {{ details["material"] }}</li>
+        <li id="item_name"><b>Description:</b> {{ product["description"] }}</li>
+    </ul>
+
+    {% elif product['category'] == 'lottery_access_codes' %}
+    <ul>
+        <li id="item_name"><b>Caliber:</b> {{ details["caliber"] }}</li>
+        <li id="item_name"><b>Bullet Weight(kg):</b> {{ details["bullet_weight"] }}</li>
+        <li id="item_name"><b>Shape:</b> {{ details["shape"] }}</li>
+        <li id="item_name"><b>Charge:</b> {{ details["charge"] }}</li>
+        <li id="item_name"><b>Material:</b> {{ details["material"] }}</li>
+        <li id="item_name"><b>Description:</b> {{ product["description"] }}</li>
+    </ul>
+
+    {% elif product['category'] == 'underground_events' %}
+    <ul>
+        <li id="item_name"><b>Caliber:</b> {{ details["caliber"] }}</li>
+        <li id="item_name"><b>Bullet Weight(kg):</b> {{ details["bullet_weight"] }}</li>
+        <li id="item_name"><b>Shape:</b> {{ details["shape"] }}</li>
+        <li id="item_name"><b>Charge:</b> {{ details["charge"] }}</li>
+        <li id="item_name"><b>Material:</b> {{ details["material"] }}</li>
+        <li id="item_name"><b>Description:</b> {{ product["description"] }}</li>
+    </ul>
+
+    {% elif product['category'] == 'custom_requests' %}
+    <ul>
+        <li id="item_name"><b>Caliber:</b> {{ details["caliber"] }}</li>
+        <li id="item_name"><b>Bullet Weight(kg):</b> {{ details["bullet_weight"] }}</li>
+        <li id="item_name"><b>Shape:</b> {{ details["shape"] }}</li>
+        <li id="item_name"><b>Charge:</b> {{ details["charge"] }}</li>
+        <li id="item_name"><b>Material:</b> {{ details["material"] }}</li>
+        <li id="item_name"><b>Description:</b> {{ product["description"] }}</li>
+    </ul>
+
+
+
+
+    
+    
+    {% endif %}
     </div>
-   
 </div>
 
 
