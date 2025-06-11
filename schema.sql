@@ -244,16 +244,15 @@
 -- DROP TABLE IF EXISTS Prescription_Meds;
 -- CREATE TABLE Prescription_Meds (
 --     serialNum INTEGER,
---     drug_name TEXT,
 --     dosage TEXT,
 --     form TEXT,
 --     controlled_substance BOOLEAN,
 --     FOREIGN KEY(serialNum) REFERENCES Products(serialNum)
 -- );
 
--- INSERT INTO Prescription_Meds (serialNum, drug_name, dosage, form) VALUES
--- (32, 'Oxycodone', '10mg', 'Tablet'),
--- (33, 'Adderall XR', '20mg', 'Capsule');
+-- INSERT INTO Prescription_Meds (serialNum, dosage, form) VALUES
+-- (33, '10mg', 'Tablet'),
+-- (34,'20mg', 'Capsule');
 
 -- DROP TABLE IF EXISTS Illicit_Drugs;
 -- CREATE TABLE Illicit_Drugs (
