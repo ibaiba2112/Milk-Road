@@ -8,3 +8,8 @@ print(var_string)
 
 print(type(var_int_string))
 print(type(var_int))
+
+
+
+test = "100"
+print(test)

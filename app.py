@@ -418,7 +418,7 @@ def product(serialNum):
         details = db.execute(""" SELECT * FROM Underground_Bunkers
                                  WHERE SerialNum = ?;""", (serialNum, )).fetchone()
         # Off-grid Cabins
-    elif product['category'] == ' Off-grid Cabins':
+    elif product['category'] == 'Off-grid Cabins':
         details = db.execute(""" SELECT * FROM  Off_grid_Cabins
                                  WHERE SerialNum = ?;""", (serialNum, )).fetchone()
 
