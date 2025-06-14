@@ -543,7 +543,53 @@ def category(category):
     if category == 'random_misc':
         products = db.execute("""SELECT * FROM Products WHERE category IN ('random')""").fetchall()
 
-    return render_template("category.html", products=products, category=category, page=page, total_pages=total_pages)
+
+    category_labels = {
+    'weapons': 'Weapons',
+    'firearm': 'Firearms',
+    'explosive': 'Explosives',
+    'ammunition': 'Ammunition',
+    'tactical_gear': 'Tactical Gear',
+    'military_equipment': 'Military Equipment',
+
+    'drugs_medicine': 'Drugs & Medicine',
+    'prescription_meds': 'Prescription Meds',
+    'illicit_drugs': 'Illicit Drugs',
+    'research_chemicals': 'Research Chemicals',
+    'herbal_natural_substances': 'Herbal/Natural Substances',
+
+    'services': 'Services',
+    'hacking_cyber_services': 'Hacking/Cyber Services',
+    'forged_documents': 'Forged Documents',
+    'contractors_protection': 'Contractors/Protection',
+    'blackmail_info_leaks': 'Blackmail/Info Leaks',
+
+    'real_estate': 'Real Estate',
+    'safehouses': 'Safehouses',
+    'underground_bunkers': 'Underground Bunkers',
+    'off_grid_cabins': 'Off-grid Cabins',
+
+    'lifestyle_luxury': 'Lifestyle / Luxury',
+    'alcohol': 'Alcohol',
+    'rare_cigars_tobacco': 'Rare Cigars & Tobacco',
+    'jewelry_rare_gems': 'Jewelry / Rare Gems',
+    'artifacts_antiquities': 'Artifacts / Antiquities',
+    'exotic_animals': 'Exotic Animals',
+    'designer_clothes': 'Designer Clothes',
+
+    'digital_tech': 'Digital / Tech',
+    'software_keys_licenses': 'Software Keys / Licenses',
+    'malware_exploits': 'Malware / Exploits',
+    'stolen_data': 'Stolen Data',
+    'burner_phones_sim_cards': 'Burner Phones / SIM Cards',
+    'encrypted_devices': 'Encrypted Devices',
+
+    'random_misc': 'Random / Misc',
+    'random': 'Random'
+    }
+    label = category_labels.get(category, category.capitalize())
+
+    return render_template("category.html", products=products, category=category, page=page, total_pages=total_pages, label=label)
 
 
     # /// CART ROUTES /// #

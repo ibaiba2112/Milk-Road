@@ -229,11 +229,27 @@ a{
         border-radius: 5px;
         border: 1px solid grey;
         background: white;
-        padding: 5px;
+        padding: 2px;
         color: grey; 
     }
 
     #category_box b {
+        color: rgba(9, 9, 9, 0.702);
+    }
+
+
+    #all_categories{
+        position: absolute;
+        top: 358px;
+        right: 700px;
+        border-radius: 5px;
+        border: 1px solid grey;
+        background: white;
+        padding: 2px;
+        color: grey; 
+
+    }
+    #all_categories b {
         color: rgba(9, 9, 9, 0.702);
     }
     .news { 
@@ -253,6 +269,20 @@ a{
         border: 1px solid black;
         margin-top: -98px;}
 
+#all_items{
+        position: absolute;
+        top: 358px;
+        right: 700px;
+        border-radius: 5px;
+        border: 1px solid grey;
+        background: white;
+        padding: 2px;
+        color: grey; 
+    }
+#all_items b{
+    color: rgba(9, 9, 9, 0.702);
+
+}
 #item_grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* 3 items per row */

@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 
 {% block main_content %}
+<div id="all_items">All <b>Items</b></div>
 <div id="item_grid">
-    
     {% for product in products %}
     <div id="item_container">
         <a href="{{ url_for('product', serialNum=product['serialNum']) }}">
