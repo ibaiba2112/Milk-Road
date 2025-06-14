@@ -100,68 +100,69 @@
                 <h2>Welcome</h2>
             </div>
         </div>
-        <div class="categories">Search By Category
+        <div class="categories">
+            <div id='category_box'>Search By <b>Category</b></div>
             <ul>
-                <li>Weapons</li>
+                <a href="{{ url_for('category', category='weapons') }}"><li>Weapons</li></a>
                 <ul>
-                <li>Firearms</li>
-                <li>Explosives</li>
-                <li>Ammunition</li>
-                <li>Tactical Gear</li>
-                <li>Military Equipment</li>
+                <a href="{{ url_for('category', category='firearm') }}"><li>Firearms</li></a>
+                <a href="{{ url_for('category', category='explosive') }}"><li>Explosives</li></a>
+                <a href="{{ url_for('category', category='ammunition') }}"><li>Ammunition</li></a>
+                <a href="{{ url_for('category', category='tactical_gear') }}"><li>Tactical Gear</li></a>
+                <a href="{{ url_for('category', category='military_equipment') }}"><li>Military Equipment</li></a>
                 </ul>
             </ul>
             <ul>
-                <li>Drugs & Medicine</li>
+                <a href="{{ url_for('category', category='drugs_medicine') }}"><li>Drugs & Medicine</li></a>
                 <ul>
-                <li>Prescription Meds</li>
-                <li>Illicit Drugs</li>
-                <li>Research Chemicals</li>
-                <li>Herbal/Natural Substances</li>
+                <a href="{{ url_for('category', category='prescription_meds') }}"><li>Prescription Meds</li></a>
+                <a href="{{ url_for('category', category='illicit_drugs') }}"><li>Illicit Drugs</li></a>
+                <a href="{{ url_for('category', category='research_chemicals') }}"><li>Research Chemicals</li></a>
+                <a href="{{ url_for('category', category='herbal_natural_substances') }}"><li>Herbal/Natural Substances</li></a>
                 </ul>
             </ul>
             <ul>
-                <li>Services</li>
+                <a href="{{ url_for('category', category='services') }}"><li>Services</li></a>
                 <ul>
-                <li>Hacking/Cyber Services</li>
-                <li>Forged Documents</li>
-                <li>Contractors/Protection</li>
-                <li>Blackmail/Info Leaks</li>
+                <a href="{{ url_for('category', category='hacking_cyber_services') }}"><li>Hacking/Cyber Services</li></a>
+                <a href="{{ url_for('category', category='forged_documents') }}"><li>Forged Documents</li></a>
+                <a href="{{ url_for('category', category='contractors_protection') }}"><li>Contractors/Protection</li></a>
+                <a href="{{ url_for('category', category='blackmail_info_leaks') }}"><li>Blackmail/Info Leaks</li></a>
                 </ul>
             </ul>
             <ul>
-                <li>Real Estate</li>
+                <a href="{{ url_for('category', category='real_estate') }}"><li>Real Estate</li></a>
                 <ul>
-                <li>Safehouses</li>
-                <li>Underground Bunkers</li>
-                <li>Off-grid Cabins</li>
+                <a href="{{ url_for('category', category='safehouses') }}"><li>Safehouses</li></a>
+                <a href="{{ url_for('category', category='underground_bunkers') }}"><li>Underground Bunkers</li></a>
+                <a href="{{ url_for('category', category='off_grid_cabins') }}"><li>Off-grid Cabins</li></a>
                 </ul>
             </ul>
             <ul>
-                <li>Lifestyle / Luxury</li>
+                <a href="{{ url_for('category', category='lifestyle_luxury') }}"><li>Lifestyle / Luxury</li></a>
                 <ul>
-                    <li>Alcohol</li>
-                    <li>Rare Cigars & Tobacco</li>
-                    <li>Jewelry / Rare Gems</li>
-                    <li>Artifacts / Antiquities</li>
-                    <li>Exotic Animals</li>
-                    <li>Designer Clothes</li>
+                    <a href="{{ url_for('category', category='alcohol') }}"><li>Alcohol</li></a>
+                    <a href="{{ url_for('category', category='rare_cigars_tobacco') }}"><li>Rare Cigars & Tobacco</li></a>
+                    <a href="{{ url_for('category', category='jewelry_rare_gems') }}"><li>Jewelry / Rare Gems</li></a>
+                    <a href="{{ url_for('category', category='artifacts_antiquities') }}"><li>Artifacts / Antiquities</li></a>
+                    <a href="{{ url_for('category', category='exotic_animals') }}"><li>Exotic Animals</li></a>
+                    <a href="{{ url_for('category', category='designer_clothes') }}"><li>Designer Clothes</li></a>
                 </ul>
             </ul>
             <ul>
-                <li>Digital / Tech</li>
+                <a href="{{ url_for('category', category='digital_tech') }}"><li>Digital / Tech</li></a>
                 <ul>
-                    <li>Software Keys / Licenses</li>
-                    <li>Malware / Exploits</li>
-                    <li>Stolen Data</li>
-                    <li>Burner Phones / SIM Cards</li>
-                    <li>Encrypted Devices</li>
+                    <a href="{{ url_for('category', category='software_keys_licenses') }}"><li>Software Keys / Licenses</li></a>
+                    <a href="{{ url_for('category', category='malware_exploits') }}"><li>Malware / Exploits</li></a>
+                    <a href="{{ url_for('category', category='stolen_data') }}"><li>Stolen Data</li></a>
+                    <a href="{{ url_for('category', category='burner_phones_sim_cards') }}"><li>Burner Phones / SIM Cards</li></a>
+                    <a href="{{ url_for('category', category='encrypted_devices') }}"><li>Encrypted Devices</li></a>
                 </ul>
             </ul>
             <ul>
-                <li>Random / Misc</li>
+                <a href="{{ url_for('category', category='random_misc') }}"><li>Random / Misc</li></a>
                 <ul>
-                    <li>Random</li>
+                    <a href="{{ url_for('category', category='Random') }}"><li>random</li></a>
                     <li>Curiosities</li>
                     <li>Black Market Organics</li>
                     <li>Lottery Access Codes</li>

@@ -21,7 +21,7 @@
         {% for serialNum, item in products.items() %}
         <tr>
             <!-- Images -->
-            <td><img src="{{ item.image }}" alt="{{ item.name }}"></td>
+            <td><img src="{{ url_for('static', filename=item['image']) }}" alt="{{ item.name }}"></td>
 
             <!-- Name/Type/Remove -->
             <td id="name">{{ item.name }}</td>

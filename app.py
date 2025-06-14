@@ -374,106 +374,106 @@ def product(serialNum):
 
     # Drugs/Medicine #
         # Prescription Meds
-    elif product['category'] == 'Prescription Meds':
+    elif product['category'] == 'prescription_meds':
         details = db.execute(""" SELECT * FROM Prescription_Meds
                                  WHERE SerialNum = ?;""", (serialNum, )).fetchone()
         # Illicit Drugs
-    elif product['category'] == 'Illicit Drugs':
+    elif product['category'] == 'illicit_drugs':
         details = db.execute(""" SELECT * FROM Illicit_Drugs
                                  WHERE SerialNum = ?;""", (serialNum, )).fetchone()
         # Research Chemicals
-    elif product['category'] == 'Research Chemicals':
+    elif product['category'] == 'research_chemicals':
         details = db.execute(""" SELECT * FROM Research_Chemicals
                                  WHERE SerialNum = ?;""", (serialNum, )).fetchone()
         # Herbal/Natural Substances
-    elif product['category'] == 'Herbal/Natural Substances':
+    elif product['category'] == 'herbal_natural_substances':
         details = db.execute(""" SELECT * FROM Herbal_Natural_Substances
                                  WHERE SerialNum = ?;""", (serialNum, )).fetchone()
 
     # Services #
         # Hacking/Cyber Services
-    elif product['category'] == 'Hacking/Cyber Services':
+    elif product['category'] == 'hacking_cyber_services':
         details = db.execute(""" SELECT * FROM  Hacking_Cyber_Services
                                  WHERE SerialNum = ?;""", (serialNum, )).fetchone()
         # Forged Documents
-    elif product['category'] == 'Forged Documents':
+    elif product['category'] == 'forged_documents':
         details = db.execute(""" SELECT * FROM Forged_Documents
                                  WHERE SerialNum = ?;""", (serialNum, )).fetchone()
         # Contractors/Protection
-    elif product['category'] == 'Contractors/Protection':
+    elif product['category'] == 'contractors_protection':
         details = db.execute(""" SELECT * FROM Contractors_Protection
                                  WHERE SerialNum = ?;""", (serialNum, )).fetchone()
         # Blackmail/Info Leaks
-    elif product['category'] == 'Blackmail/Info Leaks':
+    elif product['category'] == 'blackmail_info_leaks':
         details = db.execute(""" SELECT * FROM Blackmail_Info_Leaks
                                  WHERE SerialNum = ?;""", (serialNum, )).fetchone()
 
     # Real Estate #
         # Safehouses
-    elif product['category'] == 'Safehouses':
+    elif product['category'] == 'safehouses':
         details = db.execute(""" SELECT * FROM Safehouses
                                  WHERE SerialNum = ?;""", (serialNum, )).fetchone()
         # Underground Bunkers
-    elif product['category'] == 'Underground Bunkers':
+    elif product['category'] == 'underground_bunkers':
         details = db.execute(""" SELECT * FROM Underground_Bunkers
                                  WHERE SerialNum = ?;""", (serialNum, )).fetchone()
         # Off-grid Cabins
-    elif product['category'] == 'Off-grid Cabins':
+    elif product['category'] == 'off_grid_cabins':
         details = db.execute(""" SELECT * FROM  Off_grid_Cabins
                                  WHERE SerialNum = ?;""", (serialNum, )).fetchone()
 
     # Lifestyle / Luxury #
         # Alcohol
-    elif product['category'] == 'Alcohol':
+    elif product['category'] == 'alcohol':
         details = db.execute(""" SELECT * FROM Alcohol
                                  WHERE SerialNum = ?;""", (serialNum, )).fetchone()
         # Rare Cigars & Tobacco
-    elif product['category'] == 'Rare Cigars & Tobacco':
+    elif product['category'] == 'rare_cigars_tobacco':
         details = db.execute(""" SELECT * FROM Rare_Cigars_Tobacco
                                  WHERE SerialNum = ?;""", (serialNum, )).fetchone()
         # Jewelry / Rare Gems
-    elif product['category'] == 'Jewelry / Rare Gems':
+    elif product['category'] == 'jewelry_rare_gems':
         details = db.execute(""" SELECT * FROM Jewelry_Rare_Gems
                                  WHERE SerialNum = ?;""", (serialNum, )).fetchone()
         # Artifacts / Antiquities
-    elif product['category'] == 'Artifacts / Antiquities':
+    elif product['category'] == 'artifacts_antiquities':
         details = db.execute(""" SELECT * FROM Artifacts_Antiquities
                                  WHERE SerialNum = ?;""", (serialNum, )).fetchone()
         # Exotic Animals
-    elif product['category'] == 'Exotic Animals':
+    elif product['category'] == 'exotic_animals':
         details = db.execute(""" SELECT * FROM Exotic_Animals
                                  WHERE SerialNum = ?;""", (serialNum, )).fetchone()
         # Designer Clothes
-    elif product['category'] == 'Designer Clothes':
+    elif product['category'] == 'designer_clothes':
         details = db.execute(""" SELECT * FROM Designer_Clothes
                                  WHERE SerialNum = ?;""", (serialNum, )).fetchone()
 
 
     # Digital / Tech #
         # Software Keys / Licenses
-    elif product['category'] == 'Software Keys / Licenses':
+    elif product['category'] == 'software_keys_licenses':
         details = db.execute(""" SELECT * FROM Software_Keys_Licenses
                                  WHERE SerialNum = ?;""", (serialNum, )).fetchone()
         # Malware / Exploits
-    elif product['category'] == 'Malware / Exploits':
+    elif product['category'] == 'malware_exploits':
         details = db.execute(""" SELECT * FROM Malware_Exploits
                                  WHERE SerialNum = ?;""", (serialNum, )).fetchone()
         # Stolen Data
-    elif product['category'] == 'Stolen Data':
+    elif product['category'] == 'stolen_data':
         details = db.execute(""" SELECT * FROM Stolen_Data
                                  WHERE SerialNum = ?;""", (serialNum, )).fetchone()
         # Burner Phones / SIM Cards
-    elif product['category'] == 'Burner Phones / SIM Cards':
+    elif product['category'] == 'burner_phones_sim_cards':
         details = db.execute(""" SELECT * FROM Burner_Phones_SIM_Cards
                                  WHERE SerialNum = ?;""", (serialNum, )).fetchone()
         # Encrypted Devices
-    elif product['category'] == 'Encrypted Devices':
+    elif product['category'] == 'encrypted_devices':
         details = db.execute(""" SELECT * FROM Encrypted_Devices
                                  WHERE SerialNum = ?;""", (serialNum, )).fetchone()
 
     # Random / Misc #
         # Random
-    elif product['category'] == 'Random':
+    elif product['category'] == 'random':
         details = db.execute(""" SELECT * FROM Random
                                  WHERE SerialNum = ?;""", (serialNum, )).fetchone()
         # Curiosities
@@ -500,6 +500,50 @@ def product(serialNum):
             
     
     return render_template("item_details.html", product=product, details=details)
+
+
+    # // PRODUCT CATEGORY SEARCH \\ #
+@app.route('/category/<string:category>')
+def category(category):
+
+    # PAGINATION
+    page = request.args.get('page', 1, type=int) # Defining the page a user is on, if user is on page 2, page =2, if no page then default to 1, int makes sure it's a number
+    per_page = 9 # limit to 9 items on the page
+    offset = (page - 1) * per_page # this is the position where you fetch the products for the NEXT PAGE
+            
+    
+    db = get_db()
+
+    total_products = db.execute("""SELECT COUNT(*) FROM Products""").fetchone()[0] # Getting total number of producst in db
+    print(total_products)
+
+    products = db.execute("""SELECT * FROM Products WHERE category = ? LIMIT ? OFFSET ?;""", (category, per_page, offset)).fetchall()
+    total_pages = (total_products + per_page - 1) // per_page # Calculated total pages needed
+
+    # # Multi Catigorical Categories
+    # Weapons
+    if category == 'weapons':
+        products = db.execute("""SELECT * FROM Products WHERE category IN ('firearm', 'explosive', 'ammunition','tactical_gear', 'military_equipment')""").fetchall()
+    # drugs_medicine
+    if category == 'drugs_medicine':
+        products = db.execute("""SELECT * FROM Products WHERE category IN ('prescription_meds','illicit_drugs', 'research_chemicals', 'herbal_natural_substances')""").fetchall()
+    # services
+    if category == 'services':
+        products = db.execute("""SELECT * FROM Products WHERE category IN ('hacking_cyber_services','forged_documents', 'contractors_protection', 'blackmail_info_leaks')""").fetchall()
+    # real_estate
+    if category == 'real_estate':
+        products = db.execute("""SELECT * FROM Products WHERE category IN ('safehouses','underground_bunkers', 'off_grid_cabins')""").fetchall()
+    # lifestyle_luxury
+    if category == 'lifestyle_luxury':
+        products = db.execute("""SELECT * FROM Products WHERE category IN ('alcohol','rare_cigars_tobacco', 'jewelry_rare_gems', 'artifacts_antiquities', 'exotic_animals', 'designer_clothes')""").fetchall()
+    # digital_tech
+    if category == 'digital_tech':
+        products = db.execute("""SELECT * FROM Products WHERE category IN ('software_keys_licenses','malware_exploits', 'stolen_data', 'burner_phones_sim_cards', 'encrypted_devices')""").fetchall()
+    # random_misc
+    if category == 'random_misc':
+        products = db.execute("""SELECT * FROM Products WHERE category IN ('random')""").fetchall()
+
+    return render_template("category.html", products=products, category=category, page=page, total_pages=total_pages)
 
 
     # /// CART ROUTES /// #
