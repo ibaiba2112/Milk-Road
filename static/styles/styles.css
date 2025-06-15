@@ -111,11 +111,19 @@ a{
    
     /* Add a black background color to the top navigation bar */
 .search {
-    overflow: hidden;
-    width: fit-content;
-    border: 0.5px solid #3C7D00;
+    display: flex;
     float: right;
+    width: 70%; 
+  }
+
+  #search_border{
     border-radius: 5px;
+    border: 0.5px solid #3C7D00;
+    display: flex;
+    overflow: hidden;
+    float: right;
+    width: 90%;
+    right: 50px;
   }
   
   /* Style the search box (around and inside it) input=[type=text] means it's picking input with type=text that i a chiild of class=search */
@@ -124,19 +132,26 @@ a{
     border: none;
     font-size: 17px;
     background-color: #e9e9e9;
+    width: 89.7%;
   }
 
   .search i{
     color: #3C7D00;
     margin-right: 5px;
-    padding: 6px;
-
+    padding: 12px;
+    margin-left: 3px;
   }
 
   .search i:hover{
-    padding: 6px;
+    padding: 12px;
     color: #e9e9e9;
     transition: .5s;
+  }
+  
+  #search_word{
+    font-size: 17px;
+    padding: 10px;
+
   }
 
 
