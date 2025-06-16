@@ -271,10 +271,7 @@ a{
         grid-area: 4 / 5 / 10 / 6;
         background-color:white;
         margin-top: -98px; }
-    .footer { 
-        grid-area: 10 / 1 / 11 / 6;
-        height: 100px;
-        background-color:crimson; }
+    
     
 
         /* MAIN CONTENT */
@@ -483,3 +480,20 @@ th{
     transition: background-color 0.3s ease;
 }
 
+
+
+
+
+
+/* FOOTER */
+.footer { 
+    grid-area: 10 / 1 / 11 / 6;
+    display: flex;
+    justify-content: space-evenly;
+    border: 1px solid black;
+    height: 100px;}
+
+.footer div{
+    border-right: 1px solid black;
+    padding-right: 10px;
+}

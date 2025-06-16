@@ -1,22 +1,22 @@
 IDEAS
 - ADD A SCROLLER, STICKY
 - EMAIL LIST
--SEARCH BAR
+-SEARCH BAR ** 
 -BUYER/SELLER - 
 - JONATHAN IDEA OF INSERTING IMAGES AND FILE TYPES
-- DAY/NIGHT MODE. BLACK/RED --> GREEN/WHITE
--Cureency btcoin converter
--Wallet
+- DAY/NIGHT MODE. BLACK/RED --> GREEN/WHITE **
+-Cureency btcoin converter **
+-Wallet **
 -Avatar Icon
 
 -DB STUFF 
---> CARS, CD, CLOTHES, TICKETS, PASSPORTS, 
---> Maybe a calculator?????
+--> CARS, CD, CLOTHES, TICKETS, PASSPORTS, **
+--> Maybe a calculator????? **
 ---> Settings, profile pic etc
 --> When typing passowrd, show option to reveal password
---> When adding to cart, add a count to the whole amount of stuff bought 
---> Euro/dollar to bitcoin convert calculator 
-00> Use api?
+--> When adding to cart, add a count to the whole amount of stuff bought  **
+--> Euro/dollar to bitcoin convert calculator  **
+00> Use api? **
 --> Make account page, with currency converted, show current wallet on top of screen, also a submission box to insert products as a shopkeeper, and to change account detials like name and username
 --> Admin can delete any product from page and can also see all order history
 
